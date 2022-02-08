@@ -1,0 +1,6 @@
+<template>
+  <div>
+    <a href="/">home</a>
+    <a href="/about/">about</a>
+  </div>
+</template>

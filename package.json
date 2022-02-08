@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "dev": "vuepress dev blog",
+    "build": "vuepress build blog"
+  },
+  "dependencies": {
+    "element-ui": "^2.15.6"
+  }
+}
