@@ -112,13 +112,6 @@ export default{
   height 30vh
   /* background-color: #ddd */
 
-.nav
-  width 100%
-  height 5vh 
-  opacity 0.3
-  background-color #ddd
-  display flex
-
 .personal-review
   width 100%
   height 25vh

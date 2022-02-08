@@ -10,7 +10,7 @@
               </div>
             </div>
 
-            <div class="content" style="width: 100%;;position: absolute;top: 10vh;left: 0;display: flex;" v-if="!showQuestion.question.picture">
+            <div class="content" style="width: 100%;;position: absolute;top: 10vh;left: 0;display: flex;" v-if="showQuestion.question.picture">
               <div class="img-box" style="flex: 1;padding-left: 5vw;">
                 <img :src="$withBase(showQuestion.question.picture)" alt="" width="400px" height="250px">
               </div>
@@ -41,16 +41,30 @@
               </div>
             </div>
             <div class="content" style="width: 100%;;position: absolute;top: 10vh;left: 0;display: flex;" v-if="showQuestion.answer.picture">
-              <div class="img-box" style="flex: 1;padding-left: 5vw;">
+              <div class="img-box" style="flex: 1;padding-left: 5vw;margin-right: 1vw;">
                 <img :src="$withBase(showQuestion.answer.picture)" alt="" width="400px" height="250px">
               </div>
-              <div class="text-box" style="flex: 2;padding: 10px;font-size: 20px;">
-                <p style="text-indent:50px;line-height:50px">{{showQuestion.answer.text}}</p>
+              <div class="text-box" style="flex: 2;font-size: 20px;">
+                <div v-if="Array.isArray(showQuestion.answer.text)">
+                  <div v-for='item in showQuestion.answer.text'>
+                    <p style="line-height:30px">{{item}}</p>
+                  </div>
+                </div>
+                <div v-else>
+                  <p style="text-indent:50px;line-height:50px">{{showQuestion.answer.text}}</p>
+                </div>
               </div>
             </div>
-            <div class="content" style="width: 100%;;position: absolute;top: 50px;left: 0;display: flex;" v-else>
-              <div class="text-box" style="text-align:center;flex: 2;font-size: 20px;">
-                {{showQuestion.answer.text}}
+            <div class="content" style="width: 100%;;position: absolute;top: 100px;left: 0;display: flex;" v-else>
+              <div class="text-box" style="flex: 2;font-size: 20px;">
+                <div v-if="Array.isArray(showQuestion.answer.text)">
+                  <div v-for='item in showQuestion.answer.text'>
+                    <p style="text-indent:50px;line-height:50px">{{item}}</p>
+                  </div>
+                </div>
+                <div v-else>
+                  <p style="text-indent:50px;line-height:50px">{{showQuestion.answer.text}}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -89,16 +103,40 @@ export default{
       let type = this.questionData['question_list'][randomType]['category'];
       // console.log(type)
       //随机获取该类别问题
-      let randomQuestion = this.getRandomNumberByRange(0,this.typeInfo[type]-1);
+      let randomQuestion = this.getRandomNumberByRange(0,this.typeInfo[type]);
       // console.log(randomQuestion)
       //获取
       this.showQuestion = this.questionData['question_list'][randomType]['list'][randomQuestion];
       console.log(this.showQuestion)
       //添加
       this.showQuestion['type'] = type.toString();
+      //处理答案
+      console.log(this.showQuestion['answer']['text'] )
+      let text = this.showQuestion['answer']['text'] 
+      this.showQuestion['answer']['text'] = this.handleAnswerText(text);
+      console.log(this.showQuestion)
     },
     getRandomNumberByRange(start, end) {
       return Math.floor(Math.random() * (end - start) + start)
+    },
+    handleAnswerText(text){
+      let reg = /\d\u3001/;
+      // console.log(reg.test(text));
+      let textArray = [];
+      if(!reg.test(text))return text;
+      let i = 0;
+      while(reg.test(text)){
+        i += 1;
+        let splitCharacter = i + "、";
+        let text1 = text.split(splitCharacter);
+        textArray.push(i-1 + "、" + text1[0]);
+        text = text1[1];
+        // console.log(textArray)
+      }
+      textArray.push( i + "、" +text);
+      textArray.shift()
+      console.log(textArray);
+      return textArray;
     }
   }
 }

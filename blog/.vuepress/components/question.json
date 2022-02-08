@@ -5,7 +5,7 @@
       "list":[
         {
           "question":{
-            "picture":"/imgs/logo.jpg",
+            "picture":"",
             "text":"在JS中为什么 0.2+0.1>0.3 ?"
           },
           "answer":{
@@ -15,62 +15,62 @@
         },
         {
           "question":{
-            "picture":"/imgs/logo.jpg",
+            "picture":"",
             "text":"如何判断数据类型"
           },
           "answer":{
-            "picture":"/imgs/logo.jpg",
+            "picture":"",
             "text":"typeof、instanceof、constructor、Object.prototype.toString.call()"
           }
         }
       ]
     },
     {
-      "category":"dart",
+      "category":"css",
       "list":[
         {
           "question":{
-            "picture":"/imgs/logo.jpg",
-            "text":"在JS中为什么0.2+0.1>0.3"
+            "picture":"",
+            "text":"为什么设置居中不起作用？"
           },
           "answer":{
-            "picture":"/imgs/logo.jpg",
-            "text":"因为在JS中，浮点数是使用64位固定长度来表示的，其中的1位表示符号位，11位用来表示指数位，剩下的52位尾数位。由于只有52位表示尾数位，所以会出现精度缺失。"
+            "picture":"",
+            "text":"父元素的宽度/高度跟子元素一致"
           }
         },
         {
           "question":{
             "picture":"/imgs/logo.jpg",
-            "text":"如何判断数据类型"
+            "text":"如何设置设置水平居中？"
           },
           "answer":{
             "picture":"/imgs/logo.jpg",
-            "text":"typeof、instanceof、constructor、Object.prototype.toString.call()"
+            "text":"1、行内元素、不定宽块级元素：设置父元素 text-align:center 2、图片水平居中：设置img  clear+display+margin 3、定宽块级元素：设置子元素： margin:0 auto 4、通用方法：设置父元素 display:flex; justify-content:center;"
           }
         }
       ]
     },
     {
-      "category":"arithmetic",
+      "category":"net",
       "list":[
         {
           "question":{
             "picture":"/imgs/logo.jpg",
-            "text":"在JS中为什么0.2+0.1>0.3"
+            "text":"TCP为什么是三次握手"
           },
           "answer":{
             "picture":"/imgs/logo.jpg",
-            "text":"因为在JS中，浮点数是使用64位固定长度来表示的，其中的1位表示符号位，11位用来表示指数位，剩下的52位尾数位。由于只有52位表示尾数位，所以会出现精度缺失。"
+            "text":"两次不可靠，是因为没有第三步的同步信号，不知道双方是否达成一致的状态。四次不高效是因为三次握手可以保证数据包的传输。"
           }
         },
         {
           "question":{
             "picture":"/imgs/logo.jpg",
-            "text":"如何判断数据类型"
+            "text":"TCP三次握手过程"
           },
           "answer":{
             "picture":"/imgs/logo.jpg",
-            "text":"typeof、instanceof、constructor、Object.prototype.toString.call()"
+            "text":"你我作比方就是，我生成初始序列号ISN后加上同步信号SYN发给你，你收到之其加1后命名为你的ACK确认序列号，然后你自己的ISN和同步信号SYN发给我，这是第二次握手。第三次握手就是我确认收到你的同步信号，并把你的ISN号记录到到本地并命名为我的ACK确认序号"
           }
         }
       ]
