@@ -8,11 +8,11 @@
       <!-- <MyMain></MyMain> -->
       <!-- <RotateBox></RotateBox> -->
       <MemoryCard></MemoryCard>
-
     </div>
 
     <div class="classify-page" v-if='layoutManager.isClassify' style="position: absolute;z-index: 22;left: 0;top: 0;opacity: 0.7;">
       <MyHead></MyHead>
+      <MyMain></MyMain>
     </div>
 
     <div class="item-page" v-if='layoutManager.isItem' style="position: absolute;z-index: 22;left: 0;top: 0;opacity: 0.7;">
@@ -24,7 +24,9 @@
     </div>
 
     <div class="article-page" v-if='layoutManager.isArticle' style="position: absolute;z-index: 22;left: 0;top: 0;opacity: 0.7;">
-      <Content />
+      <div>
+        <Content />
+      </div>
     </div>
     
   </div>

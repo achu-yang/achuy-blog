@@ -5,3 +5,4 @@ tags:
   - math
 describe: 这是第一篇博客
 ---
+# Promise原理

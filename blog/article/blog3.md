@@ -5,3 +5,5 @@ tag:
   - english
 describe: 讲述liunx基础的命令
 ---
+
+# Promise原理

@@ -5,3 +5,5 @@ tag:
   - english
 describe: 这是第5篇博客
 ---
+
+# Promise原理

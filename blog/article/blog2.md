@@ -5,3 +5,5 @@ tag:
   - english
 describe: 讲述的是关于浏览器基础的文章
 ---
+
+# Promise原理
